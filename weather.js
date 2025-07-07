@@ -1,31 +1,72 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
-function print(data) {
-  console.log("都市: " + data.name);
-  console.log("国: " + data.sys.country);
+// function print(data) {
+//   console.log("都市: " + data.name);
+//   console.log("国: " + data.sys.country);
 
-  console.log("天気: " + data.weather[0] .main);
-  console.log("天気の詳細: " + data.weather[0] .description);
+//   console.log("天気: " + data.weather[0] .main);
+//   console.log("天気の詳細: " + data.weather[0] .description);
 
-  console.log("現在の気温: " + data.main.temp + "℃");
-  console.log("体感温度: " + data.main.feels_like + "℃");
-  console.log("最低気温: " + data.main.temp_min + "℃");
-  console.log("最高気温: " + data.main.temp_max + "℃");
+//   console.log("現在の気温: " + data.main.temp + "℃");
+//   console.log("体感温度: " + data.main.feels_like + "℃");
+//   console.log("最低気温: " + data.main.temp_min + "℃");
+//   console.log("最高気温: " + data.main.temp_max + "℃");
 
-  console.log("湿度: " + data.main.humidity + "%");
-  console.log("気圧: " + data.main.pressure + "hPa");
+//   console.log("湿度: " + data.main.humidity + "%");
+//   console.log("気圧: " + data.main.pressure + "hPa");
 
-  console.log("風速: " + data.wind.speed + "m/s");
-  console.log("風向: " + data.wind.deg + "°");
-  console.log("風の突風: " + data.wind.gust + "m/s");
+//   console.log("風速: " + data.wind.speed + "m/s");
+//   console.log("風向: " + data.wind.deg + "°");
+//   console.log("風の突風: " + data.wind.gust + "m/s");
 
-  console.log("雲の割合: " + data.clouds.all + "%");
-}
+//   console.log("雲の割合: " + data.clouds.all + "%");
+// }
+
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
+  let div = document.createElement('div');
+  div.setAttribute("id", "result");
+
+  let body = document.querySelector("body");
+  body.insertAdjacentElement("beforeend", div);
+
+  let ul = document.createElement('ul');
+  div.insertAdjacentElement('beforeend', ul);
+
+  let li = document.createElement('li');
+  li.textContent = "経度:" + data.coord.lon ;
+  ul.insertAdjacentElement('beforeend', li);
+
+  li = document.createElement('li');
+  li.textContent = "緯度:" + data.coord.lat;
+  ul.insertAdjacentElement('beforeend', li);
+
+  li = document.createElement('li');
+  li.textContent = "最低気温: " + data.main.temp_min + "℃";
+  ul.insertAdjacentElement('beforeend', li);
+
+  li = document.createElement('li');
+  li.textContent = "最高気温: " + data.main.temp_max + "℃";
+  ul.insertAdjacentElement('beforeend', li);
+
+  li = document.createElement('li');
+  li.textContent = "湿度: " + data.main.humidity + "%";
+  ul.insertAdjacentElement('beforeend', li);
+
+  li = document.createElement('li');
+  li.textContent = "風速: " + data.wind.speed + "m/s";
+  ul.insertAdjacentElement('beforeend', li);
+
+  li = document.createElement('li');
+  li.textContent = "風向: " + data.wind.deg + "°";
+  ul.insertAdjacentElement('beforeend', li);
+
+  li = document.createElement('li');
+  li.textContent = "都市名: " + data.name;
+  ul.insertAdjacentElement('beforeend', li);
+
 
 }
-
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
 
 
