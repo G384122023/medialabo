@@ -28,3 +28,40 @@ h3{
 li{
     color: rgb(204, 125, 138)
 }
+#sendRequest {
+  background-color: #ffb6c1;
+  color: white;              
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 20px;  
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#sendRequest:hover {
+  background-color: #ff69b4;
+  transform: scale(1.05); 
+}
+#citySelector {
+  background-color: #ffe4e1;
+  color: #333;  
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 15px;  
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  appearance: none;      
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+#citySelector {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23ff69b4" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 24px 24px;
+  padding-right: 50px; 
+}

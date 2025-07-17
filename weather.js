@@ -22,9 +22,13 @@
 //   console.log("雲の割合: " + data.clouds.all + "%");
 // }
 
-// 課題5-1 の関数 printDom() はここに記述すること
+ //課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
-  let div = document.createElement('div');
+  let oldResult = document.querySelector('#result');
+if (oldResult !== null) {
+  oldResult.remove();
+}
+let div = document.createElement('div');
   div.setAttribute("id", "result");
 
   let body = document.querySelector("body");
@@ -65,22 +69,40 @@ function printDom(data) {
   li.textContent = "都市名: " + data.name;
   ul.insertAdjacentElement('beforeend', li);
 
-
 }
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
-
-
+let b = document.querySelector('#sendRequest');
+b.addEventListener('click', sendRequest);
 
 
 // 課題6-1 のイベントハンドラ sendRequest() の定義
 function sendRequest() {
+  let cityId = document.querySelector('#citySelector').value;
 
+    let url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/' + cityId + '.json';
+
+    // 通信開始
+    axios.get(url)
+        .then(showResult)   // 通信成功
+        .catch(showError)   // 通信失敗
+        .then(finish);      // 通信の最後の処理
 }
+
 
 // 課題6-1: 通信が成功した時の処理は以下に記述
-function showResult(resp) {
+    function showResult(resp) {
+    let data = resp.data;
 
+    if (typeof data === 'string') {
+        data = JSON.parse(data);
+    }
+
+    console.log(data);
+
+    printDom(data); 
 }
+
+
 
 // 課題6-1: 通信エラーが発生した時の処理
 function showError(err) {
@@ -96,7 +118,7 @@ function finish() {
 // 以下はグルメのデータサンプル
 // 注意: 第5回までは以下を変更しないこと！
 // 注意2: 課題6-1 で以下をすべて削除すること
-let data = {
+/*let data = {
   "coord": {
     "lon": 116.3972,
     "lat": 39.9075
@@ -141,4 +163,4 @@ let data = {
   "id": 1816670,
   "name": "北京市",
   "cod": 200
-};
+};*/

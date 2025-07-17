@@ -4,32 +4,37 @@
       <meta charset="utf-8">
       <title>世界の天気（検索結果1件）</title>
     <link rel="stylesheet" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+
      <script src="weather.js" defer></script>
     </head>
     <body>
-
     <div class="box15">
 
           <h1>世界の天気</h1>
     </div>
          <h3>以下の地域の天候に関する情報を検索して表示します
           </h3>
-          <label for="city">都市名：</label>
-          <input type="text" id="city" name="city" placeholder="Filter">
-          <button id="searchBtn">検索</button>
+
+           <select id="citySelector">
+            <option value="">都市を選んでください</option>
+            <option value="360630">カイロ</option>
+            <option value="524901">モスクア</option>
+            <option value="993800">ヨハネスブルク</option>
+            <option value="1816670">北京</option>
+            <option value="1850147">東京</option>
+            <option value="1880252">シンガポール</option>
+            <option value="2147714">シドニー</option>
+            <option value="2643743">ロンドン</option>
+            <option value="2968815">パリ</option>
+            <option value="3451189">リオネジャネイロ</option>
+            <option value="5128581">ニューヨーク</option>
+            <option value="5368361">ロサンゼルス</option>
+            </option>
 
 
+          </select>
+           <button id="sendRequest">検索</button>
 
-
-        <ul>
-            <li>経度: 116.3972</li>
-            <li>緯度: 39.9075</li>
-            <li>最低気温: 9.94</li>
-            <li>最高気温: 9.94</li>
-            <li>湿度: 14</li>
-            <li>風速: 2.65</li>
-            <li>風向: 197</li>
-            <li>都市名: 北京市</li>
-        </ul>
   </body>
 </html>
